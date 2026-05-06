@@ -1,0 +1,53 @@
+** start of main.py **
+
+full_dot = '●'
+empty_dot = '○'
+
+def create_character (name, strength, intelligence, charisma):
+
+    stats = (strength, intelligence, charisma)
+
+    if not isinstance(name,str):
+        return("The character name should be a string")
+    
+    elif name == '':
+        return("The character should have a name")
+
+    elif len(name) > 10:
+        return("The character name is too long")
+
+    elif " " in name: 
+        return("The character name should not contain spaces") 
+
+    elif any(not isinstance(stats, int) for stats in stats):
+        return ("All stats should be integers")
+
+    elif isinstance(stats,int):
+        pass
+
+    elif any(stats < 1 for stats in stats):
+        return("All stats should be no less than 1")
+
+    elif any(stats > 4 for stats in stats):
+        return("All stats should be no more than 4")
+
+    elif strength + intelligence + charisma != 7:
+        return("The character should start with 7 points")
+    
+    else:
+        return(
+            name + "\n" + 
+            "STR " + (strength * full_dot+ empty_dot*(10-strength)) + "\n" +
+            "INT " + (intelligence * full_dot+ empty_dot*(10-intelligence))+ "\n" +
+            "CHA " + (charisma * full_dot+ empty_dot*(10-charisma))
+        )
+
+ 
+     
+    
+
+
+    
+
+** end of main.py **
+
